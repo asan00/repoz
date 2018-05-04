@@ -1,10 +1,12 @@
+///   РџР•Р Р•Р”Р•Р›Р«Р’РђР®, РўРђРљ РљРђРљ РќР• Р РРЎРЈР®РўРЎРЇ РљРЈР‘РРљР
+
 #include <SFML\Graphics.hpp>
 #include <iostream>
 #include <sstream>
-#include "map.h" //подключили код с картой
+#include "map.h" //ГЇГ®Г¤ГЄГ«ГѕГ·ГЁГ«ГЁ ГЄГ®Г¤ Г± ГЄГ Г°ГІГ®Г©
 ;
 using namespace std;
-using namespace sf;//включаем пространство имен sf, чтобы постоянно не писать sf::
+using namespace sf;//ГўГЄГ«ГѕГ·Г ГҐГ¬ ГЇГ°Г®Г±ГІГ°Г Г­Г±ГІГўГ® ГЁГ¬ГҐГ­ sf, Г·ГІГ®ГЎГ» ГЇГ®Г±ГІГ®ГїГ­Г­Г® Г­ГҐ ГЇГЁГ±Г ГІГј sf::
 void menu(RenderWindow & window)
 {
 	Texture menuTexture1, menuTexture2, menuBackground;
@@ -18,7 +20,7 @@ void menu(RenderWindow & window)
 	menu2.setPosition(100, 150);
 	menuBg.setPosition(345, 0);
 
-	//////////////////////////////МЕНЮ///////////////////
+	//////////////////////////////ГЊГ…ГЌГћ///////////////////
 	while (isMenu)
 	{
 		menu1.setColor(Color::White);
@@ -31,7 +33,7 @@ void menu(RenderWindow & window)
 
 		if (Mouse::isButtonPressed(Mouse::Left))
 		{
-			if (menuNum == 1) isMenu = false;//если нажали первую кнопку, то выходим из меню 
+			if (menuNum == 1) isMenu = false;//ГҐГ±Г«ГЁ Г­Г Г¦Г Г«ГЁ ГЇГҐГ°ГўГіГѕ ГЄГ­Г®ГЇГЄГі, ГІГ® ГўГ»ГµГ®Г¤ГЁГ¬ ГЁГ§ Г¬ГҐГ­Гѕ 
 			if (menuNum == 2) { window.close(); isMenu = false; }
 		}
 		window.draw(menuBg);
@@ -55,12 +57,12 @@ public:
 
 int main()
 {
-	RenderWindow window(VideoMode(960, 720), "Cube"); //создали окно
-	window.setFramerateLimit(60); // количество кадров в секунду
-	float CurrentFrame = 0;//хранит текущий кадр
+	RenderWindow window(VideoMode(960, 720), "Cube"); //Г±Г®Г§Г¤Г Г«ГЁ Г®ГЄГ­Г®
+	window.setFramerateLimit(60); // ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЄГ Г¤Г°Г®Гў Гў Г±ГҐГЄГіГ­Г¤Гі
+	float CurrentFrame = 0;//ГµГ°Г Г­ГЁГІ ГІГҐГЄГіГ№ГЁГ© ГЄГ Г¤Г°
 	Clock clock;
 	float x = -250, y = -250;
-	menu(window);//вызов меню
+	menu(window);//ГўГ»Г§Г®Гў Г¬ГҐГ­Гѕ
 
 	Font font;
 	font.loadFromFile("images/CyrilicOld.ttf");
@@ -72,17 +74,17 @@ int main()
 	textwin.setStyle(Text::Bold);
 
 	int score1(0), score2(0), summscore = 0;
-	int etap(0); // этап игры
+	int etap(0); // ГЅГІГ ГЇ ГЁГЈГ°Г»
 
-				 // создаю карту
-	Image map_image; //создаем объект Image 
-	map_image.loadFromFile("images/map.png");//загружаем в него файл
-	Texture texture;//создаем объект Texture 
-	texture.loadFromImage(map_image);//передаем в него объект Image(изображения)
-	Sprite sprite;//создаем объект Sprite
-	sprite.setTexture(texture);//передаём в него объект Texture 
+				 // Г±Г®Г§Г¤Г Гѕ ГЄГ Г°ГІГі
+	Image map_image; //Г±Г®Г§Г¤Г ГҐГ¬ Г®ГЎГєГҐГЄГІ Image 
+	map_image.loadFromFile("images/map.png");//Г§Г ГЈГ°ГіГ¦Г ГҐГ¬ Гў Г­ГҐГЈГ® ГґГ Г©Г«
+	Texture texture;//Г±Г®Г§Г¤Г ГҐГ¬ Г®ГЎГєГҐГЄГІ Texture 
+	texture.loadFromImage(map_image);//ГЇГҐГ°ГҐГ¤Г ГҐГ¬ Гў Г­ГҐГЈГ® Г®ГЎГєГҐГЄГІ Image(ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГї)
+	Sprite sprite;//Г±Г®Г§Г¤Г ГҐГ¬ Г®ГЎГєГҐГЄГІ Sprite
+	sprite.setTexture(texture);//ГЇГҐГ°ГҐГ¤Г ВёГ¬ Гў Г­ГҐГЈГ® Г®ГЎГєГҐГЄГІ Texture 
 
-							   //соzдаю спрайты для первого кубика
+							   //Г±Г®zГ¤Г Гѕ Г±ГЇГ°Г Г©ГІГ» Г¤Г«Гї ГЇГҐГ°ГўГ®ГЈГ® ГЄГіГЎГЁГЄГ 
 
 	Image a1_image, a2_image, a3_image, a4_image, a5_image, a6_image;
 	a1_image.loadFromFile("images/1.png");
@@ -112,7 +114,7 @@ int main()
 	a5_sprite.setPosition(x, y);
 	a6_sprite.setPosition(x, y);
 
-	//соzдаю спрайты для второго кубика
+	//Г±Г®zГ¤Г Гѕ Г±ГЇГ°Г Г©ГІГ» Г¤Г«Гї ГўГІГ®Г°Г®ГЈГ® ГЄГіГЎГЁГЄГ 
 
 	Image b1_image, b2_image, b3_image, b4_image, b5_image, b6_image;
 	b3_image.loadFromFile("images/3.png");
@@ -148,7 +150,7 @@ int main()
 
 	while (window.isOpen())
 	{
-		// Обрабатываем события в цикле.
+		// ГЋГЎГ°Г ГЎГ ГІГ»ГўГ ГҐГ¬ Г±Г®ГЎГ»ГІГЁГї Гў Г¶ГЁГЄГ«ГҐ.
 		float time = clock.getElapsedTime().asMicroseconds();
 		clock.restart();
 		time = time / 400;
@@ -163,16 +165,16 @@ int main()
 		for (int i = 0; i < HEIGHT_MAP; i++)
 			for (int j = 0; j < WIDTH_MAP; j++)
 			{
-				if (TileMap[i][j] == ' ')  sprite.setTextureRect(IntRect(0, 0, 32, 32)); //если встретили символ пробел, то рисуем 1й квадратик
-				if ((TileMap[i][j] == '0')) sprite.setTextureRect(IntRect(64, 0, 32, 32));//если встретили символ 0, то рисуем 3й квадратик
-				sprite.setPosition(j * 32, i * 32); // раскидыва квадратики, превращая в карту.
-				window.draw(sprite);//выводим спрайт на экран
+				if (TileMap[i][j] == ' ')  sprite.setTextureRect(IntRect(0, 0, 32, 32)); //ГҐГ±Г«ГЁ ГўГ±ГІГ°ГҐГІГЁГ«ГЁ Г±ГЁГ¬ГўГ®Г« ГЇГ°Г®ГЎГҐГ«, ГІГ® Г°ГЁГ±ГіГҐГ¬ 1Г© ГЄГўГ Г¤Г°Г ГІГЁГЄ
+				if ((TileMap[i][j] == '0')) sprite.setTextureRect(IntRect(64, 0, 32, 32));//ГҐГ±Г«ГЁ ГўГ±ГІГ°ГҐГІГЁГ«ГЁ Г±ГЁГ¬ГўГ®Г« 0, ГІГ® Г°ГЁГ±ГіГҐГ¬ 3Г© ГЄГўГ Г¤Г°Г ГІГЁГЄ
+				sprite.setPosition(j * 32, i * 32); // Г°Г Г±ГЄГЁГ¤Г»ГўГ  ГЄГўГ Г¤Г°Г ГІГЁГЄГЁ, ГЇГ°ГҐГўГ°Г Г№Г Гї Гў ГЄГ Г°ГІГі.
+				window.draw(sprite);//ГўГ»ГўГ®Г¤ГЁГ¬ Г±ГЇГ°Г Г©ГІ Г­Г  ГЅГЄГ°Г Г­
 			}
 		window.draw(text);
 
 		if (a == 1)
 		{
-			if (Keyboard::isKeyPressed(Keyboard::Space)) { //если нажата клавиша стрелка влево или англ буква А
+			if (Keyboard::isKeyPressed(Keyboard::Space)) { //ГҐГ±Г«ГЁ Г­Г Г¦Г ГІГ  ГЄГ«Г ГўГЁГёГ  Г±ГІГ°ГҐГ«ГЄГ  ГўГ«ГҐГўГ® ГЁГ«ГЁ Г Г­ГЈГ« ГЎГіГЄГўГ  ГЂ
 				for (x = -250; x < 270; x++)
 				{
 					for (y = -250; y < 270; y++)
@@ -183,7 +185,7 @@ int main()
 						window.draw(a1_sprite);
 					}
 				}
-				//a1_sprite.move(-0.1*time, 0);//происходит само движение персонажа влево
+				//a1_sprite.move(-0.1*time, 0);//ГЇГ°Г®ГЁГ±ГµГ®Г¤ГЁГІ Г±Г Г¬Г® Г¤ГўГЁГ¦ГҐГ­ГЁГҐ ГЇГҐГ°Г±Г®Г­Г Г¦Г  ГўГ«ГҐГўГ®
 			}
 			window.draw(a1_sprite);
 			score1 += 1;
@@ -193,7 +195,7 @@ int main()
 		{
 			if (a == 2)
 			{
-				if (Keyboard::isKeyPressed(Keyboard::Space)) { //если нажата клавиша стрелка влево или англ буква А
+				if (Keyboard::isKeyPressed(Keyboard::Space)) { //ГҐГ±Г«ГЁ Г­Г Г¦Г ГІГ  ГЄГ«Г ГўГЁГёГ  Г±ГІГ°ГҐГ«ГЄГ  ГўГ«ГҐГўГ® ГЁГ«ГЁ Г Г­ГЈГ« ГЎГіГЄГўГ  ГЂ
 					for (x = -250; x < 270; x++)
 					{
 						for (y = -250; y < 270; y++)
@@ -204,7 +206,7 @@ int main()
 							window.draw(a2_sprite);
 						}
 					}
-					//a2_sprite.move(-0.1*time, 0);//происходит само движение персонажа влево
+					//a2_sprite.move(-0.1*time, 0);//ГЇГ°Г®ГЁГ±ГµГ®Г¤ГЁГІ Г±Г Г¬Г® Г¤ГўГЁГ¦ГҐГ­ГЁГҐ ГЇГҐГ°Г±Г®Г­Г Г¦Г  ГўГ«ГҐГўГ®
 				}
 
 				window.draw(a2_sprite);
@@ -214,7 +216,7 @@ int main()
 			{
 				if (a == 3)
 				{
-					if (Keyboard::isKeyPressed(Keyboard::Space)) { //если нажата клавиша стрелка влево или англ буква А
+					if (Keyboard::isKeyPressed(Keyboard::Space)) { //ГҐГ±Г«ГЁ Г­Г Г¦Г ГІГ  ГЄГ«Г ГўГЁГёГ  Г±ГІГ°ГҐГ«ГЄГ  ГўГ«ГҐГўГ® ГЁГ«ГЁ Г Г­ГЈГ« ГЎГіГЄГўГ  ГЂ
 						for (x = -250; x < 270; x++)
 						{
 							for (y = -250; y < 270; y++)
@@ -225,7 +227,7 @@ int main()
 								window.draw(a3_sprite);
 							}
 						}
-						//a3_sprite.move(-0.1*time, 0);//происходит само движение персонажа влево
+						//a3_sprite.move(-0.1*time, 0);//ГЇГ°Г®ГЁГ±ГµГ®Г¤ГЁГІ Г±Г Г¬Г® Г¤ГўГЁГ¦ГҐГ­ГЁГҐ ГЇГҐГ°Г±Г®Г­Г Г¦Г  ГўГ«ГҐГўГ®
 					}
 
 					window.draw(a3_sprite);
@@ -235,7 +237,7 @@ int main()
 				{
 					if (a == 4)
 					{
-						if (Keyboard::isKeyPressed(Keyboard::Space)) { //если нажата клавиша стрелка влево или англ буква А
+						if (Keyboard::isKeyPressed(Keyboard::Space)) { //ГҐГ±Г«ГЁ Г­Г Г¦Г ГІГ  ГЄГ«Г ГўГЁГёГ  Г±ГІГ°ГҐГ«ГЄГ  ГўГ«ГҐГўГ® ГЁГ«ГЁ Г Г­ГЈГ« ГЎГіГЄГўГ  ГЂ
 							for (x = -250; x < 270; x++)
 							{
 								for (y = -250; y < 270; y++)
@@ -246,7 +248,7 @@ int main()
 									window.draw(a4_sprite);
 								}
 							}
-							//a4_sprite.move(-0.1*time, 0);//происходит само движение персонажа влево
+							//a4_sprite.move(-0.1*time, 0);//ГЇГ°Г®ГЁГ±ГµГ®Г¤ГЁГІ Г±Г Г¬Г® Г¤ГўГЁГ¦ГҐГ­ГЁГҐ ГЇГҐГ°Г±Г®Г­Г Г¦Г  ГўГ«ГҐГўГ®
 						}
 
 						window.draw(a4_sprite);
@@ -256,7 +258,7 @@ int main()
 					{
 						if (a == 5)
 						{
-							if (Keyboard::isKeyPressed(Keyboard::Space)) { //если нажата клавиша стрелка влево или англ буква А
+							if (Keyboard::isKeyPressed(Keyboard::Space)) { //ГҐГ±Г«ГЁ Г­Г Г¦Г ГІГ  ГЄГ«Г ГўГЁГёГ  Г±ГІГ°ГҐГ«ГЄГ  ГўГ«ГҐГўГ® ГЁГ«ГЁ Г Г­ГЈГ« ГЎГіГЄГўГ  ГЂ
 								for (x = -250; x < 270; x++)
 								{
 									for (y = -250; y < 270; y++)
@@ -267,7 +269,7 @@ int main()
 										window.draw(a5_sprite);
 									}
 								}
-								//a5_sprite.move(-0.1*time, 0);//происходит само движение персонажа влево
+								//a5_sprite.move(-0.1*time, 0);//ГЇГ°Г®ГЁГ±ГµГ®Г¤ГЁГІ Г±Г Г¬Г® Г¤ГўГЁГ¦ГҐГ­ГЁГҐ ГЇГҐГ°Г±Г®Г­Г Г¦Г  ГўГ«ГҐГўГ®
 							}
 
 							window.draw(a5_sprite);
@@ -275,7 +277,7 @@ int main()
 						}
 						else
 						{
-							if (Keyboard::isKeyPressed(Keyboard::Space)) { //если нажата клавиша стрелка влево или англ буква А
+							if (Keyboard::isKeyPressed(Keyboard::Space)) { //ГҐГ±Г«ГЁ Г­Г Г¦Г ГІГ  ГЄГ«Г ГўГЁГёГ  Г±ГІГ°ГҐГ«ГЄГ  ГўГ«ГҐГўГ® ГЁГ«ГЁ Г Г­ГЈГ« ГЎГіГЄГўГ  ГЂ
 								for (x = -250; x < 270; x++)
 								{
 									for (y = -250; y < 270; y++)
@@ -286,7 +288,7 @@ int main()
 										window.draw(a6_sprite);
 									}
 								}
-								//a6_sprite.move(-0.1*time, 0);//происходит само движение персонажа влево
+								//a6_sprite.move(-0.1*time, 0);//ГЇГ°Г®ГЁГ±ГµГ®Г¤ГЁГІ Г±Г Г¬Г® Г¤ГўГЁГ¦ГҐГ­ГЁГҐ ГЇГҐГ°Г±Г®Г­Г Г¦Г  ГўГ«ГҐГўГ®
 							}
 
 							window.draw(a6_sprite);
@@ -336,11 +338,11 @@ int main()
 		summscore = score1 + score2;
 
 
-		std::ostringstream playerScoreString;    // объявили переменную
-		playerScoreString << summscore;		//занесли в нее число здоровья, то есть формируем строку
-		text.setString("Score:" + playerScoreString.str());//задаем строку тексту и вызываем сформированную выше строку методом .str() 
-		text.setPosition(165, 200);//задаем позицию текста, отступая от центра камеры
-		window.draw(text);//рисую этот текст
+		std::ostringstream playerScoreString;    // Г®ГЎГєГїГўГЁГ«ГЁ ГЇГҐГ°ГҐГ¬ГҐГ­Г­ГіГѕ
+		playerScoreString << summscore;		//Г§Г Г­ГҐГ±Г«ГЁ Гў Г­ГҐГҐ Г·ГЁГ±Г«Г® Г§Г¤Г®Г°Г®ГўГјГї, ГІГ® ГҐГ±ГІГј ГґГ®Г°Г¬ГЁГ°ГіГҐГ¬ Г±ГІГ°Г®ГЄГі
+		text.setString("Score:" + playerScoreString.str());//Г§Г Г¤Г ГҐГ¬ Г±ГІГ°Г®ГЄГі ГІГҐГЄГ±ГІГі ГЁ ГўГ»Г§Г»ГўГ ГҐГ¬ Г±ГґГ®Г°Г¬ГЁГ°Г®ГўГ Г­Г­ГіГѕ ГўГ»ГёГҐ Г±ГІГ°Г®ГЄГі Г¬ГҐГІГ®Г¤Г®Г¬ .str() 
+		text.setPosition(165, 200);//Г§Г Г¤Г ГҐГ¬ ГЇГ®Г§ГЁГ¶ГЁГѕ ГІГҐГЄГ±ГІГ , Г®ГІГ±ГІГіГЇГ Гї Г®ГІ Г¶ГҐГ­ГІГ°Г  ГЄГ Г¬ГҐГ°Г»
+		window.draw(text);//Г°ГЁГ±ГіГѕ ГЅГІГ®ГІ ГІГҐГЄГ±ГІ
 		window.display();
 	}
 
