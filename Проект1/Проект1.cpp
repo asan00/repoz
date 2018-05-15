@@ -54,37 +54,10 @@ public:
 	}
 
 };
-
-int main()
+void cube1(int a, int & score1, RenderWindow & window)
 {
-	RenderWindow window(VideoMode(960, 720), "Cube"); //ñîçäàëè îêíî
-	window.setFramerateLimit(60); // êîëè÷åñòâî êàäðîâ â ñåêóíäó
-	float CurrentFrame = 0;//õðàíèò òåêóùèé êàäð
-	Clock clock;
-	float x = -250, y = -250;
-	menu(window);//âûçîâ ìåíþ
-
-	Font font;
-	font.loadFromFile("images/CyrilicOld.ttf");
-	Text textscore1(" ", font, 40), textscore2(" ", font, 40), textknopka1(" ", font, 40), textknopka2(" ", font, 40), textwin(" ", font, 100);
-	textscore1.setStyle(Text::Bold);
-	textscore2.setStyle(Text::Bold);
-	textknopka1.setStyle(Text::Bold);
-	textknopka2.setStyle(Text::Bold);
-	textwin.setStyle(Text::Bold);
-
-	int score1(0), score2(0), summscore = 0;
-	int etap(0); // ýòàï èãðû
-
-				 // ñîçäàþ êàðòó
-	Image map_image; //ñîçäàåì îáúåêò Image 
-	map_image.loadFromFile("images/map.png");//çàãðóæàåì â íåãî ôàéë
-	Texture texture;//ñîçäàåì îáúåêò Texture 
-	texture.loadFromImage(map_image);//ïåðåäàåì â íåãî îáúåêò Image(èçîáðàæåíèÿ)
-	Sprite sprite;//ñîçäàåì îáúåêò Sprite
-	sprite.setTexture(texture);//ïåðåäà¸ì â íåãî îáúåêò Texture 
-
-							   //ñîzäàþ ñïðàéòû äëÿ ïåðâîãî êóáèêà
+	float x = 100, y = 100;
+	//соzдаю спрайты для первого кубика
 
 	Image a1_image, a2_image, a3_image, a4_image, a5_image, a6_image;
 	a1_image.loadFromFile("images/1.png");
@@ -114,8 +87,121 @@ int main()
 	a5_sprite.setPosition(x, y);
 	a6_sprite.setPosition(x, y);
 
-	//ñîzäàþ ñïðàéòû äëÿ âòîðîãî êóáèêà
+	//(time(0));
+	// a = 1 + rand() % 6;
+	score1 = 0;
+	if (a == 1)
+	{
+		//for (x = 100; x < 270; x++)
+		//{
+			//for (y = 100; y < 270; y++)
+			//{
+			//	x += 40;
+				//y += 40;
+				//a1_sprite.setPosition(x, y);
+				window.draw(a1_sprite);
+			//}
+		//}
+		//a1_sprite.move(-0.1*time, 0);//происходит само движение персонажа влево
+		//window.draw(a1_sprite);
+		score1 += 1;
+	}
+	else
+	{
+		if (a == 2)
+		{
+			//for (x = 100; x < 270; x++)
+			//{
+				//for (y = 100; y < 270; y++)
+				//{
+				//	x += 40;
+					//y += 40;
+				///	//a2_sprite.setPosition(x, y);
+					window.draw(a2_sprite);
+				//}
+			//}
+			//a2_sprite.move(-0.1*time, 0);//происходит само движение персонажа влево
+			//window.draw(a2_sprite);
+			score1 += 2;
+		}
+		else
+		{
+			if (a == 3)
+			{
+				//for (x = 100; x < 270; x++)
+				//{
+				//	for (y = 100; y < 270; y++)
+					//{
+						//x += 40;
+					//	y += 40;
+						//a3_sprite.setPosition(x, y);
+						window.draw(a3_sprite);
+					//}
+				//}
+				//a3_sprite.move(-0.1*time, 0);//происходит само движение персонажа влево
+				//window.draw(a3_sprite);
+				score1 += 3;
+			}
+			else
+			{
+				if (a == 4)
+				{
+					//for (x = 100; x < 270; x++)
+					//{
+						//for (y = 100; y < 270; y++)
+						//{
+						//	x += 40;
+						//	y += 40;
+							//a4_sprite.setPosition(x, y);
+							window.draw(a4_sprite);
+						//}
+					//}
+					//a4_sprite.move(-0.1*time, 0);//происходит само движение персонажа влево
+					//window.draw(a4_sprite);
+					score1 += 4;
+				}
+				else
+				{
+					if (a == 5)
+					{
+						//for (x = 100; x < 270; x++)
+						//{
+						//	for (y = 100; y < 270; y++)
+							//{
+							//	x += 40;
+							//	y += 40;
+								//a5_sprite.setPosition(x, y);
+								window.draw(a5_sprite);
+							//}
+						//}
+						//a5_sprite.move(-0.1*time, 0);//происходит само движение персонажа влево
+						//window.draw(a5_sprite);
+						score1 += 5;
+					}
+					else
+					{
+						//for (x = 100; x < 270; x++)
+						//{
+							//for (y = 100; y < 270; y++)
+							//{
+							//	x += 40;
+							//	y += 40;
+							//	a6_sprite.setPosition(x, y);
+								window.draw(a6_sprite);
+							//}
+						//}
+						//a6_sprite.move(-0.1*time, 0);//происходит само движение персонажа влево
+						//window.draw(a6_sprite);
+						score1 += 6;
+					}
+				}
+			}
+		}
+	}
 
+}
+void cube2(int b, int& score2, RenderWindow & window)
+{
 	Image b1_image, b2_image, b3_image, b4_image, b5_image, b6_image;
 	b3_image.loadFromFile("images/3.png");
 	b1_image.loadFromFile("images/1.png");
@@ -143,6 +229,93 @@ int main()
 	b4_sprite.setPosition(500, 250);
 	b5_sprite.setPosition(500, 250);
 	b6_sprite.setPosition(500, 250);
+	score2 = 0;
+	if (b == 1)
+	{
+		window.draw(b1_sprite); score2 += 1;
+	}
+	else
+	{
+		if (b == 2)
+		{
+			window.draw(b2_sprite); score2 += 2;
+		}
+		else
+		{
+			if (b == 3)
+			{
+				window.draw(b3_sprite); score2 += 3;
+			}
+			else
+			{
+				if (b == 4)
+				{
+					window.draw(b4_sprite);  score2 += 4;
+				}
+				else
+				{
+					if (b == 5)
+					{
+						window.draw(b5_sprite);  score2 += 5;
+					}
+					else
+					{
+						window.draw(b6_sprite); score2 += 6;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+bool timer(int c)
+{
+	static sf::Clock clock;
+	if (clock.getElapsedTime().asSeconds() > c)
+	{
+		return true;
+		clock.restart();
+	}
+	return false;
+}
+void drawcubes(int &score1, int &score2, RenderWindow & window)
+{
+	int a = 1 + rand() % 6;
+	int b = 1 + rand() % 6;
+	cube1(a, score1, window);
+	cube2(b, score2, window);
+}
+
+int main()
+{
+	RenderWindow window(VideoMode(960, 720), "Cube"); //ñîçäàëè îêíî
+	window.setFramerateLimit(60); // êîëè÷åñòâî êàäðîâ â ñåêóíäó
+	float CurrentFrame = 0;//õðàíèò òåêóùèé êàäð
+	Clock clock;
+	float x = -250, y = -250;
+	menu(window);//âûçîâ ìåíþ
+
+	Font font;
+	font.loadFromFile("images/CyrilicOld.ttf");
+	Text textscore1(" ", font, 40), textscore2(" ", font, 40), textknopka1("Бросок ", font, 40), textknopka2("Стоп ", font, 40), textwin(" ", font, 100);
+	int score1(0), score2(0), summscore = 0;
+	int etap(0); // ýòàï èãðû
+textknopka1.setPosition(1020, 150);
+	textknopka2.setPosition(1020, 250);
+	textscore1.setPosition(600, 500);
+	textscore2.setPosition(600, 560);			 // ñîçäàþ êàðòó
+	Image map_image; //ñîçäàåì îáúåêò Image 
+	map_image.loadFromFile("images/map.png");//çàãðóæàåì â íåãî ôàéë
+	Texture texture;//ñîçäàåì îáúåêò Texture 
+	texture.loadFromImage(map_image);//ïåðåäàåì â íåãî îáúåêò Image(èçîáðàæåíèÿ)
+	Sprite sprite;//ñîçäàåì îáúåêò Sprite
+	sprite.setTexture(texture);//ïåðåäà¸ì â íåãî îáúåêò Texture 
+
+		int stavka = 0;
+	int money1 = 100, money2 = 100;					   //ñîzäàþ ñïðàéòû äëÿ ïåðâîãî êóáèêà
+
+
 
 	srand(time(0));
 	int a = 1 + rand() % 6;
@@ -171,177 +344,38 @@ int main()
 				window.draw(sprite);//âûâîäèì ñïðàéò íà ýêðàí
 			}
 		window.draw(text);
-
-		if (a == 1)
+if (event.mouseButton.button == Mouse::Left && event.type == Event::MouseButtonPressed)
+{ drawcubes(score1, score2, window); 
+		window.display(); Sleep(1000);
+		summscore1 = score1 + score2;
+}
+		if (event.mouseButton.button == Mouse::Right && event.type == Event::MouseButtonPressed)
 		{
-			if (Keyboard::isKeyPressed(Keyboard::Space)) { //åñëè íàæàòà êëàâèøà ñòðåëêà âëåâî èëè àíãë áóêâà À
-				for (x = -250; x < 270; x++)
-				{
-					for (y = -250; y < 270; y++)
-					{
-						x += 40;
-						y += 40;
-						a1_sprite.setPosition(x, y);
-						window.draw(a1_sprite);
-					}
-				}
-				//a1_sprite.move(-0.1*time, 0);//ïðîèñõîäèò ñàìî äâèæåíèå ïåðñîíàæà âëåâî
-			}
-			window.draw(a1_sprite);
-			score1 += 1;
-
+			drawcubes(score1, score2, window); 
+			window.display(); Sleep(1000);
+						summscore2 = score1 + score2;
 		}
-		else
-		{
-			if (a == 2)
-			{
-				if (Keyboard::isKeyPressed(Keyboard::Space)) { //åñëè íàæàòà êëàâèøà ñòðåëêà âëåâî èëè àíãë áóêâà À
-					for (x = -250; x < 270; x++)
-					{
-						for (y = -250; y < 270; y++)
-						{
-							x += 40;
-							y += 40;
-							a2_sprite.setPosition(x, y);
-							window.draw(a2_sprite);
-						}
-					}
-					//a2_sprite.move(-0.1*time, 0);//ïðîèñõîäèò ñàìî äâèæåíèå ïåðñîíàæà âëåâî
-				}
-
-				window.draw(a2_sprite);
-				score1 += 2;
-			}
-			else
-			{
-				if (a == 3)
+		if (summscore1 > summscore2)
 				{
-					if (Keyboard::isKeyPressed(Keyboard::Space)) { //åñëè íàæàòà êëàâèøà ñòðåëêà âëåâî èëè àíãë áóêâà À
-						for (x = -250; x < 270; x++)
-						{
-							for (y = -250; y < 270; y++)
-							{
-								x += 40;
-								y += 40;
-								a3_sprite.setPosition(x, y);
-								window.draw(a3_sprite);
-							}
-						}
-						//a3_sprite.move(-0.1*time, 0);//ïðîèñõîäèò ñàìî äâèæåíèå ïåðñîíàæà âëåâî
-					}
-
-					window.draw(a3_sprite);
-					score1 += 3;
+					if (stavka != 0) { money1 += stavka; money2 -= stavka; stavka = 0; }
+					textwin.setString(" Выиграл игрок 1!");
 				}
-				else
+				if (summscore1 < summscore2)
 				{
-					if (a == 4)
-					{
-						if (Keyboard::isKeyPressed(Keyboard::Space)) { //åñëè íàæàòà êëàâèøà ñòðåëêà âëåâî èëè àíãë áóêâà À
-							for (x = -250; x < 270; x++)
-							{
-								for (y = -250; y < 270; y++)
-								{
-									x += 40;
-									y += 40;
-									a4_sprite.setPosition(x, y);
-									window.draw(a4_sprite);
-								}
-							}
-							//a4_sprite.move(-0.1*time, 0);//ïðîèñõîäèò ñàìî äâèæåíèå ïåðñîíàæà âëåâî
-						}
-
-						window.draw(a4_sprite);
-						score1 += 4;
-					}
-					else
-					{
-						if (a == 5)
-						{
-							if (Keyboard::isKeyPressed(Keyboard::Space)) { //åñëè íàæàòà êëàâèøà ñòðåëêà âëåâî èëè àíãë áóêâà À
-								for (x = -250; x < 270; x++)
-								{
-									for (y = -250; y < 270; y++)
-									{
-										x += 40;
-										y += 40;
-										a5_sprite.setPosition(x, y);
-										window.draw(a5_sprite);
-									}
-								}
-								//a5_sprite.move(-0.1*time, 0);//ïðîèñõîäèò ñàìî äâèæåíèå ïåðñîíàæà âëåâî
-							}
-
-							window.draw(a5_sprite);
-							score1 += 5;
-						}
-						else
-						{
-							if (Keyboard::isKeyPressed(Keyboard::Space)) { //åñëè íàæàòà êëàâèøà ñòðåëêà âëåâî èëè àíãë áóêâà À
-								for (x = -250; x < 270; x++)
-								{
-									for (y = -250; y < 270; y++)
-									{
-										x += 40;
-										y += 40;
-										a6_sprite.setPosition(x, y);
-										window.draw(a6_sprite);
-									}
-								}
-								//a6_sprite.move(-0.1*time, 0);//ïðîèñõîäèò ñàìî äâèæåíèå ïåðñîíàæà âëåâî
-							}
-
-							window.draw(a6_sprite);
-							score1 += 6;
-						}
-					}
+					if (stavka != 0) { money1 -= stavka; money2 += stavka; stavka = 0; }
+					textwin.setString(" Выиграл игрок 2!");
 				}
-			}
-		}
-
-		if (b == 1)
-		{
-			window.draw(b1_sprite); score2 += 1;
-		}
-		else
-		{
-			if (b == 2)
-			{
-				window.draw(b2_sprite); score2 += 2;
-			}
-			else
-			{
-				if (b == 3)
+				if (summscore1 == summscore2)
 				{
-					window.draw(b3_sprite); score2 += 3;
+					textwin.setString("Ничья!");
+					stavka = 0;
 				}
-				else
-				{
-					if (b == 4)
-					{
-						window.draw(b4_sprite);  score2 += 4;
-					}
-					else
-					{
-						if (b == 5)
-						{
-							window.draw(b5_sprite);  score2 += 5;
-						}
-						else
-						{
-							window.draw(b6_sprite); score2 += 6;
-						}
-					}
-				}
-			}
-		}
-		summscore = score1 + score2;
 
 
-		std::ostringstream playerScoreString;    // îáúÿâèëè ïåðåìåííóþ
-		playerScoreString << summscore;		//çàíåñëè â íåå ÷èñëî çäîðîâüÿ, òî åñòü ôîðìèðóåì ñòðîêó
-		text.setString("Score:" + playerScoreString.str());//çàäàåì ñòðîêó òåêñòó è âûçûâàåì ñôîðìèðîâàííóþ âûøå ñòðîêó ìåòîäîì .str() 
-		text.setPosition(165, 200);//çàäàåì ïîçèöèþ òåêñòà, îòñòóïàÿ îò öåíòðà êàìåðû
+score1string << summscore1; score2string << summscore2;
+			//çàíåñëè â íåå ÷èñëî çäîðîâüÿ, òî åñòü ôîðìèðóåì ñòðîêó
+		textscore1.setString("Cчёт первого: " + score1string.str());
+			textscore2.setString("Счёт второго:  " + score2string.str());
 		window.draw(text);//ðèñóþ ýòîò òåêñò
 		window.display();
 	}
